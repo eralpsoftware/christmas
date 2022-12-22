@@ -87,6 +87,13 @@
           text-align: center;
           width: 60% !important;
         }
+        .content h1 {
+          font-size: 16px !important;
+          margin-bottom: 10px;
+        }
+        .content p {
+          font-size: 13px !important;
+        }
       }
       .memory-card:active {
         transform: scale(0.94);
@@ -147,6 +154,19 @@
       .d-none {
         display: none;
       }
+      .flex-icons {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        justify-content: space-between;
+        padding: 20px 40px;
+      }
+      .flex-icons şmg {
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -175,10 +195,18 @@
           <img src="./images/2.jpg" alt="space" class="front" />
           <img src="./images/1.jpg" alt="a black card" class="end" />
         </div>
+        <div class="flex-icons">
+          <img id="left" src="./images/left.png" alt="" />
+          <img id="circle" src="./images/circle.png" alt="" />
+          <img id="right" src="./images/right.png" alt="" />
+        </div>
       </section>
       <script>
         const card = document.getElementById("p-1");
         const icon = document.getElementById("icon");
+        const left = document.getElementById("left");
+        const circle = document.getElementById("circle");
+        const right = document.getElementById("right");
         var root = document.documentElement;
         root.style.setProperty("--screen-x", window.innerHeight + "px");
         root.style.setProperty("--screen-y", window.innerWidth + "px");
@@ -192,7 +220,16 @@
           icon.classList.toggle("press-icon");
         }
 
+        right.addEventListener("click", () => {
+          card.classList.remove("flip");
+        });
+        left.addEventListener("click", () => {
+          card.classList.add("flip");
+        });
         card.addEventListener("click", flip);
+        circle.addEventListener("click", () => {
+          card.classList.toggle("flip");
+        });
         document.addEventListener("touchstart", handleTouchStart, false);
         document.addEventListener("touchmove", handleTouchMove, false);
 
