@@ -229,6 +229,7 @@
         card.addEventListener("click", flip);
         circle.addEventListener("click", () => {
           card.classList.toggle("flip");
+          icon.classList.toggle("press-icon");
         });
         document.addEventListener("touchstart", handleTouchStart, false);
         document.addEventListener("touchmove", handleTouchMove, false);
@@ -264,6 +265,7 @@
             /*most significant*/
             if (xDiff > 0) {
               card.classList.toggle("flip");
+              icon.classList.toggle("press-icon");
             }
           }
           /* reset values */
