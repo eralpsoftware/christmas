@@ -164,8 +164,9 @@
         justify-content: space-between;
         padding: 20px 40px;
       }
-      .flex-icons şmg {
+      .flex-icons img {
         cursor: pointer;
+        width: 32px;
       }
     </style>
   </head>
@@ -222,9 +223,11 @@
 
         right.addEventListener("click", () => {
           card.classList.remove("flip");
+          icon.classList.add("press-icon");
         });
         left.addEventListener("click", () => {
           card.classList.add("flip");
+          icon.classList.remove("press-icon");
         });
         card.addEventListener("click", flip);
         circle.addEventListener("click", () => {
