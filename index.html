@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+      * {
+        box-sizing: border-box;
+        font-family: "Caladea", serif;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      p {
+        margin: 0;
+      }
+
+      .full-video {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+      }
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        z-index: 10;
+        height: 100vh;
+      }
+
+      .book {
+        --book-height: 432px;
+        --book-ratio: 0.58;
+      }
+
+      .book > div {
+        height: var(--book-height);
+        width: calc(var(--book-height) / var(--book-ratio));
+        overflow: auto;
+        background-color: #0a0a0a;
+        transform: scale(0.9);
+        border-radius: 0;
+        transform-origin: left;
+      }
+      @media only screen and (max-width: 600px) {
+        .book {
+          --book-height: 280px;
+          --book-ratio: 0.28;
+        }
+        .book > div {
+          width: 100vw;
+        }
+        .full-p p {
+          margin-top: 1rem;
+          font-size: 13px !important;
+          text-align: center;
+          color: #e0b572;
+        }
+        h1 {
+          font-family: "Caladea", cursive;
+          font-size: 18px !important;
+          font-weight: 300;
+          color: #e0b572;
+        }
+        .full-p {
+          height: 278px !important;
+        }
+      }
+
+      .book-cover {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        z-index: 9;
+        text-align: center;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: #232323;
+        background-image: url(./images/1.jpg);
+        color: white;
+        transition: transform 2s;
+      }
+      h1 {
+        font-family: "Caladea", cursive;
+        font-size: 24px;
+        font-weight: 300;
+        color: #e0b572;
+      }
+
+      h2 {
+        font-size: 16px;
+      }
+
+      .separator {
+        --separator-size: 8px;
+        width: var(--separator-size);
+        height: var(--separator-size);
+        background-color: #dbd75d;
+        margin: 50px auto 60px auto;
+        border-radius: 50%;
+        position: relative;
+      }
+
+      .separator::after,
+      .separator::before {
+        content: "";
+        position: absolute;
+        width: 12px;
+        background-color: white;
+        height: 2px;
+        top: calc(50% - 1px);
+      }
+
+      .separator::after {
+        left: 15px;
+      }
+
+      .separator::before {
+        right: 15px;
+      }
+
+      .book-content {
+        transform: scale(0.9) translateY(30px);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: #232323;
+        background-image: url(./images/3.jpg);
+        transition: all 0.3s 1s;
+      }
+
+      .book-content h3,
+      .book-content p {
+        opacity: 0;
+        transition: all 0.3s 0.3s;
+      }
+
+      h3 {
+        padding: 30px;
+      }
+
+      p {
+        padding: 0px 30px 10px 30px;
+        text-align: justify;
+        font-size: 14px;
+      }
+
+      .book-cover > div {
+        transition: opacity 0s 0.6s;
+      }
+
+      .book > .book-cover {
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: #232323;
+        background-image: url(./images/1.jpg);
+        animation: delay2 1.5s ease-in;
+        animation-delay: 2s;
+      }
+      @keyframes delay2 {
+        0% {
+          transform: rotateY(20deg) scale(0.9);
+        }
+        25% {
+          transform: rotateY(0) scale(0.9);
+        }
+        50% {
+          transform: rotateY(30deg) scale(0.9);
+        }
+        100% {
+          transform: rotateY(0) scale(0.9);
+        }
+      }
+      .book:hover > .book-cover {
+        transform: rotateY(180deg) scale(0.9);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: #232323;
+        background-image: url(./images/2.jpg);
+        animation: delay 1s ease-in;
+      }
+      @keyframes delay {
+        0% {
+          opacity: 1;
+          background-image: url(./images/1.jpg);
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .book:hover > .book-cover > div {
+        opacity: 0;
+      }
+
+      .book:hover > .book-content {
+        transform: scale(0.9) translateY(0px);
+      }
+
+      .book:hover > .book-content h3,
+      .book:hover > .book-content p {
+        opacity: 1;
+      }
+      .book-cover img {
+        object-fit: contain;
+        width: 100%;
+      }
+      .full-p {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 70%;
+        height: 430px;
+        margin: auto;
+        text-align: center;
+        justify-content: center;
+      }
+      .full-p p {
+        margin-top: 1rem;
+        font-size: 19px;
+        text-align: center;
+        color: #e0b572;
+      }
+    </style>
+  </head>
+  <body>
+    <video
+      src="./images//background2.mp4"
+      loop
+      autoplay
+      class="full-video"
+      alt=""
+    ></video>
+    <main>
+      <div class="book">
+        <div class="book-cover"></div>
+        <div class="book-content">
+          <div class="full-p">
+            <h1>As Eralp Kazan Family,</h1>
+            <p>
+              We congratulate you on the New Year and wish you a healthy and
+              happy Christmas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
