@@ -267,8 +267,11 @@
           if (Math.abs(xDiff) > Math.abs(yDiff)) {
             /*most significant*/
             if (xDiff > 0) {
-              card.classList.toggle("flip");
-              icon.classList.toggle("press-icon");
+              card.classList.add("flip");
+              icon.classList.remove("press-icon");
+            } else {
+              card.classList.remove("flip");
+              icon.classList.add("press-icon"); 
             }
           }
           /* reset values */
