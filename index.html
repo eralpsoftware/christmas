@@ -76,7 +76,35 @@
         left: -780px;
         animation: none !important;
       }
-      @media only screen and (max-width: 600px) {
+      @media only screen and (max-width: 1360px) {
+        .content {
+          z-index: 10;
+          color: #e0b572;
+          text-align: center;
+          width: 60% !important;
+        }
+        .content h1 {
+          font-size: 22px !important;
+        }
+        .content p {
+          font-size: 17px !important;
+        }
+      }
+      @media only screen and (max-width: 1100px) {
+        .content {
+          z-index: 10;
+          color: #e0b572;
+          text-align: center;
+          width: 75% !important;
+        }
+        .content h1 {
+          font-size: 22px !important;
+        }
+        .content p {
+          font-size: 17px !important;
+        }
+      }
+      @media only screen and (max-width: 767px) {
         .memory-card.flip {
           transform: rotateY(180deg);
           transform-origin: 0% 5%;
@@ -85,14 +113,14 @@
           z-index: 10;
           color: #e0b572;
           text-align: center;
-          width: 60% !important;
+          width: 90% !important;
         }
         .content h1 {
           font-size: 16px !important;
           margin-bottom: 10px;
         }
         .content p {
-          font-size: 13px !important;
+          font-size: 12px !important;
         }
       }
       .memory-card:active {
@@ -128,6 +156,7 @@
       .content h1 {
         font-size: 24px;
         margin-bottom: 10px;
+        margin-top: 30px;
       }
       .content p {
         font-size: 19px;
@@ -169,7 +198,11 @@
         width: 32px;
       }
       video {
-        width: 100%;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
       }
     </style>
   </head>
@@ -188,9 +221,20 @@
           <div class="content">
             <h1>As Eralp Kazan Family,</h1>
             <p>
-              We congratulate you on the New Year and wish you a healthy and
-              happy Christmas.
+              It’s been great to meet with you, and we’re excited and thankful
+              to know you. We appreciate your interest in ERALP.
             </p>
+            <p>
+              We wish you a Merry Christmas and a successful, prosperous, happy
+              New Year 2023!
+            </p>
+
+            <p>
+              May your New Year be filled with special moments, warmth, peace,
+              and happiness, the joy of covered ones near, and wishing you all
+              the joys of Christmas and a year of happiness.
+            </p>
+            <p>Here’s to the future!</p>
           </div>
           <img src="./images/2.jpg" alt="space" class="front" />
           <img src="./images/3.jpg" alt="a black card" class="end" />
@@ -274,7 +318,7 @@
               icon.classList.remove("press-icon");
             } else {
               card.classList.remove("flip");
-              icon.classList.add("press-icon"); 
+              icon.classList.add("press-icon");
             }
           }
           /* reset values */
